@@ -1,14 +1,13 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: rgba(217, 217, 217, 0.4);
 }
 
-.main {
+.header {
   padding: 5rem 0;
   flex: 1;
   display: flex;
@@ -16,106 +15,194 @@
   justify-content: center;
   align-items: center;
 }
+.main {
+  margin-top: -50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 .footer {
   width: 100%;
-  height: 100px;
-  border-top: 1px solid #eaeaea;
+  height: 140px;
+  margin-top: 40px;
+  border-top: 1px solid rgb(217, 217, 217);
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.footer a {
+.topBar{
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  height: 61px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  background-color: white;
+  z-index: 10;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.navBar{
+  position: fixed;
+  z-index: 10;
+  width: 100vw;
+  height: 40px;
+  padding: 8px;
+  background-color: white;
+  box-shadow: 0 5px 15px rgba(53, 53, 53,0.6);
 }
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+.navBar a{
+  margin-left: 5px;
+  padding: 8px;
+  padding-bottom: 10px;
+  font-weight: 600;
 }
 
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+.active{
+  color: white;
+  background-color: rgba(20, 33, 61, 0.7);
 }
 
-.title,
-.description {
-  text-align: center;
+.logo{
+  padding-left: 20px;
 }
 
-.description {
-  line-height: 1.5;
-  font-size: 1.5rem;
+.formularioBusqueda{
+  size: 20px;
+  align-self: center;
+  margin: auto auto;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
+.barraBusqueda{
+  font-size: 20px;
+  width: 150px;
   text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
+  padding-left: 15px;
+  border : #353535 solid 1px;
+}
+
+.lupaBusqueda{
+  font-size: 17px;
+  background-color:transparent;
+  color: rgba(20, 33, 61,0.8);
+  border: none;
+  position: relative;
+  left: -28px;
+  top: -1px;
+}
+
+.carrito{
+  font-size: 30px;
+  position: relative;
+  color: rgba(20, 33, 61,0.8);
+  top: -20px;
+  right: 15px;
+}
+
+.tituloHome{
+  color: rgba(20, 33, 61,0.8);
+  margin-left: -10px;
+  margin-top: 0;
+}
+
+.articulosConteiner{
+  width: 290px;
+  background-color: white;
+  margin-bottom: 20px;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
+  box-shadow: 0 0 10px rgba(20, 33, 61, 0.7);
+  margin-bottom: 30px;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.displayContainer{
+  display: flex;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.nombreProducto{
+  font-weight: bold;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.precioProducto{
+  font-weight: bold;
+  color: #fca311  ;
 }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
+.enStock{
+  color: black;
+  padding-left: 15px;
+  display: none;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+.articulosConteiner img{
+  border-radius: 10px;
+}
+
+.paddingLeft{
+  padding-left: 15px;
+}
+
+.agregarCarrito{
+  margin-left: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: white;
+  background-color: #353535;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.categoriaProducto{
+  padding-left: 15px;
+}
+
+@media(min-width:480px){
+  .barraBusqueda{
+      width: 200px;
+  }
+  .articulosConteiner{
+    width: 450px;
+  }
+  .paddingLeft{
+    display: flex;
+  }
+  .precioProducto{
+    margin-left: 20px;
+  }
+  .enStock{
+    display: block;
+    color:rgba(20, 33, 61, 0.7);
+    font-weight: bold;
+  }
+}
+
+@media(min-width:679px){
+  .tituloHome{
+    padding-top: 20px;
+    margin-left: -70px;
+  }
+  .logo{
+    padding-left: 30px;
+  }
+  .navBar{
+    padding-left: 10px;
+  }
+  .navBar a{
+    margin-left: 10px;
+  }
+  .articulosConteiner{
+    width: 350px;
+  }
+  .paddingLeft{
+    height: 50px;
+  }
+  .categoriaProducto{
+    height: 10px;
+  }
+  .precioProducto{
+    margin-left: 5px;
+    padding-right: 10px;
   }
 }
