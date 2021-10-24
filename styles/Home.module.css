@@ -36,38 +36,14 @@
 
 .topBar{
   position: fixed;
+  padding-left: 10px;
   top: 0px;
   width: 100vw;
   height: 61px;
   display: flex;
   background-color: white;
+  box-shadow: 0 0 10px #353535;
   z-index: 10;
-}
-
-.navBar{
-  position: fixed;
-  z-index: 10;
-  width: 100vw;
-  height: 40px;
-  padding: 8px;
-  background-color: white;
-  box-shadow: 0 5px 15px rgba(53, 53, 53,0.6);
-}
-
-.navBar a{
-  margin-left: 5px;
-  padding: 8px;
-  padding-bottom: 10px;
-  font-weight: 600;
-}
-
-.active{
-  color: white;
-  background-color: rgba(20, 33, 61, 0.7);
-}
-
-.logo{
-  padding-left: 20px;
 }
 
 .formularioBusqueda{
@@ -95,6 +71,15 @@
 }
 
 .carrito{
+  display: none;
+  font-size: 30px;
+  position: relative;
+  color: rgba(20, 33, 61,0.8);
+  top: -20px;
+  right: 15px;
+}
+
+.burgerMenu{
   font-size: 30px;
   position: relative;
   color: rgba(20, 33, 61,0.8);
@@ -103,9 +88,11 @@
 }
 
 .tituloHome{
+  display: block;
   color: rgba(20, 33, 61,0.8);
-  margin-left: -10px;
-  margin-top: 0;
+  position: relative;
+  top: -70px;
+  left: -60px;
 }
 
 .articulosConteiner{
@@ -159,8 +146,14 @@
 }
 
 @media(min-width:480px){
+  .topBar{
+    padding: 0 20px;
+  }
   .barraBusqueda{
       width: 200px;
+  }
+  .tituloHome{
+    margin-left: -100px;
   }
   .articulosConteiner{
     width: 450px;
@@ -180,29 +173,54 @@
 
 @media(min-width:679px){
   .tituloHome{
-    padding-top: 20px;
-    margin-left: -70px;
+    margin-left: -40%;
   }
   .logo{
     padding-left: 30px;
   }
-  .navBar{
-    padding-left: 10px;
+  .carrito{
+    display: block;
   }
-  .navBar a{
-    margin-left: 10px;
+  .burgerMenu{
+    display: none;
+  }
+  .main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .articulosConteiner{
-    width: 350px;
+    width: 280px;
+    margin: 0 40px;
+    margin-bottom: 50px;
+  }
+  .articulosConteiner img{
+    height: 280px;
+  }
+  .displayContainer{
+    display: flex;
+    flex-direction: column;
   }
   .paddingLeft{
     height: 50px;
-  }
-  .categoriaProducto{
-    height: 10px;
+    justify-content: space-around;
   }
   .precioProducto{
     margin-left: 5px;
     padding-right: 10px;
+  }
+  .categoriaProducto{
+    padding: 0;
+    height: 15px;
+    text-align: center;
+  }
+  .enStock{
+    padding: 0;
+    height: 20px;
+    text-align: center;
+  }
+  .agregarCarrito{
+    position: relative;
+    left: 32%;
   }
 }
