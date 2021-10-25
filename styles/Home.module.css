@@ -194,6 +194,9 @@
   margin-top: -10px;
   max-width: 1200px;
 }
+.logoFooter{
+  cursor: pointer;
+}
 
 @media(min-width:480px){
   .topBar{
@@ -335,7 +338,7 @@
   }
   .agregarCarrito{
     position: relative;
-    left: 32%;
+    left: 30%;
   }
 }
 

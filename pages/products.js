@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import Detail from '../components/Detail';
 import Footer from '../components/Footer';
 
-export default function Home() {
+export default function Products() {
   return (
     <div className={styles.container}>
       <Head>

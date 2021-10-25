@@ -24,11 +24,6 @@ function Detail(){
                                     Comprar
                                 </button>
                             </Link>
-                            <Link href="/">
-                                <button className={styles.agregarCarrito}>
-                                    Home
-                                </button>
-                            </Link>
                         </div>
                     </div>
                 </div>
