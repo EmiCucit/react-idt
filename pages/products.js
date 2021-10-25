@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header';
+import Detail from '../components/Detail';
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -12,9 +13,8 @@ export default function Home() {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Header/>
-      
-      
-      
+      <h2 className={styles.tituloHome}>Detalle de producto</h2>
+      <Detail/>
       <Footer/>
 
     </div>
