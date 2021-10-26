@@ -302,7 +302,21 @@
     cursor: pointer;
   }
   .articulosConteiner img{
+    opacity: 0.95;
+  }
+  .articulosConteiner img:hover{
+    opacity: 1;
+  }
+  .articulosConteiner img{
     height: 280px;
+  }
+  .displayDetalle img:hover{
+    cursor: zoom-in;
+    transform: scale(1.4);
+  }
+  .articulosConteiner:hover{
+    box-shadow: 0 0 15px black;
+    transform: scale(1.009);
   }
   .displayContainer{
     display: flex;
@@ -346,9 +360,7 @@
   .barraBusqueda{
     width: 300px;
   }
-  .articulosConteiner:hover{
-    box-shadow: 0 0 5px rgba(20, 33, 61, 0.7);;
-  }
+
   .detalleProducto img{
     width: 400px;
   }

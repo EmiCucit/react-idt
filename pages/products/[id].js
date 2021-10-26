@@ -1,10 +1,21 @@
+import Head from 'next/head';
+import Link from 'next/link';
 import Image from 'next/image';
-import Link from 'next/link'
-import styles from '../styles/Home.module.css';
+import styles from '../../styles/Home.module.css';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
-function Detail(){
-    return(
-        <main className={styles.main}>
+export default function Products(detail) {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <script src="https://kit.fontawesome.com/117d4d8bac.js" crossorigin="anonymous"></script>
+        <title>Ian Digital Talent App</title> 
+        <link rel="icon" href="/logo.png" />
+      </Head>
+      <Header/>
+      <h2 className={styles.tituloHome}>Detalle de producto</h2>
+      <main className={styles.main}>
             <div className={styles.detalleProducto}>
                 <div className={styles.displayDetalle}>
                     <div className={styles.imagenDetalle}>
@@ -35,7 +46,44 @@ function Detail(){
             sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like.
             </p>
         </main>
-    )
+      <Footer/>
+
+    </div>
+  )
 }
 
-export default Detail;
+export async function getStaticProps() {
+    const client = new ApolloClient({
+      uri:"http://localhost:3000/shop-api",
+      cache: new InMemoryCache()
+    })
+    console.log(params())
+  
+    const {data} = await client.query({
+      query: gql`
+        query ObtenerProducto{
+            product(id:`+ [id] +`){
+            id,
+            name,
+            description,
+            collections{
+                name
+            },
+            assets{
+                source
+            },
+            variants{
+                price
+            }
+            }
+        }
+      `
+    })
+    
+  
+    return{
+      props:{
+        detail: data.products.items,
+      }
+    }
+  }

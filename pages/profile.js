@@ -6,7 +6,6 @@ export default function Profile(){
     return(
         <div className={styles.container}>
             <Header/>
-            <h1> Perfil de usuario!!! </h1>
             <Footer/>
         </div>
     )

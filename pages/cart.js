@@ -6,7 +6,6 @@ export default function Cart(){
     return(
         <div className={styles.container}>
             <Header/>
-            <h1> Carrito de compras!!! </h1>
             <Footer/>
         </div>
     )
