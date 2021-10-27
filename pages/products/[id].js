@@ -111,7 +111,6 @@ export async function getStaticProps( paths ) {
     `
   })
 
-  console.log(data)
   return{
     props:{
       detail: data.product,
