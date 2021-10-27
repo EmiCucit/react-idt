@@ -8,6 +8,8 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 
 export default function Home({cards}) {
+  if(!cards) return <h1>Cargando ...</h1>
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +19,7 @@ export default function Home({cards}) {
       </Head>
       <Header/>
       <h2 className={styles.tituloHome}>Nuestros productos</h2>
-      <main className={styles.main}>
+      <main className={styles.main} key="Home">
       {cards.map(card=>{
         return(
             <div className={styles.articulosConteiner} key={card.id}>
@@ -25,17 +27,20 @@ export default function Home({cards}) {
                     <Link href={"/products/"+card.id}>
                         <Image src={card.assets[0].source} alt={card.name} width={190} height={190}></Image>
                     </Link>
-                    <div>
-                        <Link href="/products">
+                    <div className={styles.centrarContenido}>
+                        <Link href={"/products/"+card.id}>
                             <div className={styles.paddingLeft}>
                                 <p className={styles.nombreProducto}>{card.name}</p>
                                 <p className={styles.precioProducto}>${card.variants[0].price}</p>
                             </div>
                         </Link>
-                        <Link href="/products">
-                            <p className={styles.categoriaProducto}>{card.collections[0].name} & {card.collections[1].name}</p>
-                        </Link>
-                        <Link href="/products">
+                        {card.collections.map(category=>{
+                          return(
+                            <Link href={"/products/"+card.id}>
+                              <p className={styles.categoriaProducto} key={category.name}>{category.name}</p>
+                           </Link>
+                          )})}
+                        <Link href={"/products/"+card.id}>
                             <p className={styles.enStock}>En stock</p>
                         </Link>
                             <button className={styles.agregarCarrito}>Comprar</button>

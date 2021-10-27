@@ -22,12 +22,12 @@ function Header(){
                         <input type="text" className={styles.barraBusqueda} placeholder="Buscar " />
                         <button className={styles.lupaBusqueda}><FontAwesomeIcon icon={faSearch}/></button>
                     </form>
-                    <p className={styles.burgerMenu}><FontAwesomeIcon icon={faBars}/></p>
+                    <p className={styles.burgerMenu} key="burger"><FontAwesomeIcon icon={faBars}/></p>
                     <Link href="/profile">
-                        <p className={styles.carrito}><FontAwesomeIcon icon={faUserCircle}/></p>
+                        <p className={styles.carrito} key="perfil"><FontAwesomeIcon icon={faUserCircle}/></p>
                     </Link>
                     <Link href="/cart">
-                        <p className={styles.carrito}><FontAwesomeIcon icon={faShoppingCart}/></p>
+                        <p className={styles.carrito} key="carrito"><FontAwesomeIcon icon={faShoppingCart}/></p>
                     </Link>
                 </div>
             </div>

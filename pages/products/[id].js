@@ -1,12 +1,21 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import styles from '../../styles/Home.module.css';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import { useContext } from 'react';
+
+
 
 export default function Products(detail) {
-  return (
+    const router = useRouter();
+
+    if(router.isFallback) return <h1>Cargando... </h1>
+  
+    return (
     <div className={styles.container}>
       <Head>
         <script src="https://kit.fontawesome.com/117d4d8bac.js" crossorigin="anonymous"></script>
@@ -52,30 +61,41 @@ export default function Products(detail) {
   )
 }
 
+export async function getStaticPaths(){
+    return{
+        paths : [{ params : { id :1 } }],
+        fallback : true
+    }
+}
+
 export async function getStaticProps() {
+    const { params } = context;
+    const { id } = params
+    console.log(id)
+    console.log(params)
     const client = new ApolloClient({
       uri:"http://localhost:3000/shop-api",
       cache: new InMemoryCache()
     })
-    console.log(params())
   
     const {data} = await client.query({
       query: gql`
-        query ObtenerProducto{
-            product(id:`+ [id] +`){
-            id,
-            name,
-            description,
-            collections{
-                name
-            },
-            assets{
+        query ObtenerProductos{
+          products{
+            items{
+              id,
+              assets{
                 source
-            },
-            variants{
+              },
+              name,
+              collections{
+                name 
+              },
+              variants{
                 price
+              },
             }
-            }
+          }
         }
       `
     })
