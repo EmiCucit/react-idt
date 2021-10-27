@@ -14,7 +14,7 @@ function Header(){
             <div className={styles.maxWidth}>
                 <div className={styles.topBar}>
                     <span className={styles.logo}>
-                        <Link href="/" passHref>
+                        <Link href="/" passHref as="Home">
                             <a>
                                 <Image src="/idtapp.png" alt="Logo" width={60} height={60} ></Image>
                             </a>
@@ -25,12 +25,12 @@ function Header(){
                         <button className={styles.lupaBusqueda}><FontAwesomeIcon icon={faSearch}/></button>
                     </form>
                     <p className={styles.burgerMenu} key="burger"><FontAwesomeIcon icon={faBars}/></p>
-                    <Link href="/profile" passHref>
+                    <Link href="/profile" passHref as="Perfil de usuario">
                         <a>
                             <p className={styles.carrito} key="perfil"><FontAwesomeIcon icon={faUserCircle}/></p>
                         </a>
                     </Link>
-                    <Link href="/cart" passHref>
+                    <Link href="/cart" passHref as="Carrito de compras">
                         <a>    
                             <p className={styles.carrito} key="carrito"><FontAwesomeIcon icon={faShoppingCart}/></p>
                         </a>

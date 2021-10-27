@@ -11,7 +11,7 @@ export default function Home({cards}) {
   return (
     <div className={styles.container}>
       <Head>
-        <script src="https://kit.fontawesome.com/117d4d8bac.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/117d4d8bac.js" crossOrigin="anonymous"></script>
         <title>Ian Digital Talent App</title> 
         <link rel="icon" href="/logo.png" />
       </Head>
@@ -22,13 +22,13 @@ export default function Home({cards}) {
         return(
             <div className={styles.articulosConteiner} key={card.id}>
                 <div className={styles.displayContainer} >
-                    <Link href={"/products/"+card.id} passHref>
+                    <Link href={"/products/"+card.id} passHref as="Detalle de producto">
                       <a>
                         <Image src={card.assets[0].source} alt={card.name} width={190} height={190}></Image>
                       </a>
                     </Link>
                     <div className={styles.centrarContenido}>
-                        <Link href={"/products/"+card.id} passHref>
+                        <Link href={"/products/"+card.id} passHref as="Detalle de producto">
                             <a>    
                               <div className={styles.paddingLeft}>
                                   <p className={styles.nombreProducto}>{card.name}</p>
@@ -36,22 +36,26 @@ export default function Home({cards}) {
                               </div>
                             </a>
                         </Link>
-                        <Link href={"/products/"+card.id} passHref>
+                        <Link href={"/products/"+card.id} passHref as="Detalle de producto">
                           <a>    
                             <p className={styles.categoriaProducto} key={card.id+card.collections[0].id}>{card.collections[0].name}</p>
                           </a>
                         </Link>
-                        <Link href={"/products/"+card.id} passHref>
+                        <Link href={"/products/"+card.id} passHref as="Detalle de producto">
                           <a>    
                             <p className={styles.categoriaProducto} key={card.id+card.collections[1].id}>{card.collections[1].name}</p>
                           </a>
                         </Link>
-                        <Link href={"/products/"+card.id} passHref>
+                        <Link href={"/products/"+card.id} passHref as="Detalle de producto">
                             <a>
                               <p className={styles.enStock}>En stock</p>
                             </a>
                         </Link>
+                        <Link href="/cart" passHref as="Carrito de compras">
+                          <a>
                             <button className={styles.agregarCarrito}>Comprar</button>
+                          </a>
+                          </Link>
                     </div>
                 </div>
             </div>            
