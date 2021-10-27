@@ -234,6 +234,9 @@
     display: flex;
     justify-content: space-around;
   }
+  .nombreProducto{
+    margin-top: 15px;
+  }
   .precioProducto{
     margin-left: 20px;
   }
