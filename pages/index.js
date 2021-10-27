@@ -8,8 +8,6 @@ import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 
 export default function Home({cards}) {
-  if(!cards) return <h1>Cargando ...</h1>
-  
   return (
     <div className={styles.container}>
       <Head>
@@ -23,25 +21,35 @@ export default function Home({cards}) {
       {cards.map(card=>{
         return(
             <div className={styles.articulosConteiner} key={card.id}>
-                <div className={styles.displayContainer}>
-                    <Link href={"/products/"+card.id}>
+                <div className={styles.displayContainer} >
+                    <Link href={"/products/"+card.id} passHref>
+                      <a>
                         <Image src={card.assets[0].source} alt={card.name} width={190} height={190}></Image>
+                      </a>
                     </Link>
                     <div className={styles.centrarContenido}>
-                        <Link href={"/products/"+card.id}>
-                            <div className={styles.paddingLeft}>
-                                <p className={styles.nombreProducto}>{card.name}</p>
-                                <p className={styles.precioProducto}>${card.variants[0].price}</p>
-                            </div>
+                        <Link href={"/products/"+card.id} passHref>
+                            <a>    
+                              <div className={styles.paddingLeft}>
+                                  <p className={styles.nombreProducto}>{card.name}</p>
+                                  <p className={styles.precioProducto}>${card.variants[0].price}</p>
+                              </div>
+                            </a>
                         </Link>
-                        {card.collections.map(category=>{
-                          return(
-                            <Link href={"/products/"+card.id}>
-                              <p className={styles.categoriaProducto} key={category.name}>{category.name}</p>
-                           </Link>
-                          )})}
-                        <Link href={"/products/"+card.id}>
-                            <p className={styles.enStock}>En stock</p>
+                        <Link href={"/products/"+card.id} passHref>
+                          <a>    
+                            <p className={styles.categoriaProducto} key={card.id+card.collections[0].id}>{card.collections[0].name}</p>
+                          </a>
+                        </Link>
+                        <Link href={"/products/"+card.id} passHref>
+                          <a>    
+                            <p className={styles.categoriaProducto} key={card.id+card.collections[1].id}>{card.collections[1].name}</p>
+                          </a>
+                        </Link>
+                        <Link href={"/products/"+card.id} passHref>
+                            <a>
+                              <p className={styles.enStock}>En stock</p>
+                            </a>
                         </Link>
                             <button className={styles.agregarCarrito}>Comprar</button>
                     </div>
@@ -49,7 +57,7 @@ export default function Home({cards}) {
             </div>            
         )
       })}
-         </main>
+      </main>
       <Footer/>
 
     </div>
@@ -73,7 +81,8 @@ export async function getStaticProps() {
             },
             name,
             collections{
-              name 
+              name,
+              id 
             },
             variants{
               price

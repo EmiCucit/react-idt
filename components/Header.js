@@ -14,8 +14,10 @@ function Header(){
             <div className={styles.maxWidth}>
                 <div className={styles.topBar}>
                     <span className={styles.logo}>
-                        <Link href="/" >
-                            <Image src="/idtapp.png" alt="Logo" width={60} height={60} ></Image>
+                        <Link href="/" passHref>
+                            <a>
+                                <Image src="/idtapp.png" alt="Logo" width={60} height={60} ></Image>
+                            </a>
                         </Link>
                     </span>
                     <form action="/" method="GET" className={styles.formularioBusqueda}>
@@ -23,11 +25,15 @@ function Header(){
                         <button className={styles.lupaBusqueda}><FontAwesomeIcon icon={faSearch}/></button>
                     </form>
                     <p className={styles.burgerMenu} key="burger"><FontAwesomeIcon icon={faBars}/></p>
-                    <Link href="/profile">
-                        <p className={styles.carrito} key="perfil"><FontAwesomeIcon icon={faUserCircle}/></p>
+                    <Link href="/profile" passHref>
+                        <a>
+                            <p className={styles.carrito} key="perfil"><FontAwesomeIcon icon={faUserCircle}/></p>
+                        </a>
                     </Link>
-                    <Link href="/cart">
-                        <p className={styles.carrito} key="carrito"><FontAwesomeIcon icon={faShoppingCart}/></p>
+                    <Link href="/cart" passHref>
+                        <a>    
+                            <p className={styles.carrito} key="carrito"><FontAwesomeIcon icon={faShoppingCart}/></p>
+                        </a>
                     </Link>
                 </div>
             </div>
